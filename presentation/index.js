@@ -11,8 +11,13 @@ import {
   List,
   Quote,
   Slide,
-  Text
+  Text,
+  Appear,
+  Layout,
+  Fill,
 } from "spectacle";
+
+import CodeSlide from 'spectacle-code-slide';
 
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
@@ -34,11 +39,26 @@ const images = {
 
 preloader(images);
 
+
+// https://www.materialpalette.com/blue/pink
+const background = {
+  dark: "#303F9F",
+  default: "#3F51B5",
+  light: "#C5CAE9",
+  accent: "#FF5252",
+};
+const text = {
+  primary: "#FFFFFF",
+  secondary: "#757575",
+  primaryBis: "#212121",
+};
+const border = "#BDBDBD";
+
 const theme = createTheme({
-  primary: "white",
-  secondary: "#1F2022",
-  tertiary: "#03A9FC",
-  quartenary: "#CECECE"
+  primary: background.default,
+  secondary: background.light,
+  tertiary: text.primary,
+  quartenary: background.accent,
 }, {
   primary: "Montserrat",
   secondary: "Helvetica"
@@ -48,13 +68,62 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
-        <Slide transition={["zoom"]} bgColor="primary">
-          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
+        <CodeSlide
+          fill
+          lang="js"
+          code={require("raw-loader!../assets/code/es5function.js.example")}
+          ranges={[
+            { loc: [0,1] },
+            { loc: [1,2] },
+            { loc: [2,3] },
+          ]}
+        />
+        <Slide transition={["zoom"]}>
+          <Heading size={1} fit caps lineHeight={1}>
+            Développer une SPA
           </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-            open the presentation/index.js file to get started
-          </Text>
+          <Heading size={2} fit caps>
+            Avec l'écosystème javascript: Redux ⇔ React ⇔ Redux-saga
+          </Heading>
+        </Slide>
+        <Slide transition={["zoom"]} bgColor="primary">
+          <Heading size={1} lineHeight={1}>
+            ECMAScript 6
+          </Heading>
+          <Appear>
+            <Text margin="10px 0 0" size={6} bold>
+              EcmaQuoi ?
+            </Text>
+          </Appear>
+        </Slide>
+        <Slide transition={["zoom"]} bgColor="primary">
+          <List>
+            <ListItem>Spécification</ListItem>
+            <Appear><ListItem>Javascript, Jscript, ActionScript</ListItem></Appear>
+            <Appear><ListItem>Interprété par un moteur</ListItem></Appear>
+            <Appear><ListItem>(Spidermonkey, V8, Tamarin, ...)</ListItem></Appear>
+          </List>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={4}>Les arrow functions</Heading>
+          <Layout>
+            <Fill>
+              <Heading>ES5</Heading>
+            </Fill>
+            <Fill>
+              <Heading>ES6</Heading>
+              <CodeSlide
+                transition={[]}
+                lang="js"
+                code={require("raw-loader!../assets/code/es6function.js.example")}
+                ranges={[
+                  { loc: [0,1] },
+                  { loc: [1,2] },
+                  { loc: [2,3] },
+                ]}
+              />
+            </Fill>
+          </Layout>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Typography</Heading>
