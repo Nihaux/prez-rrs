@@ -17,6 +17,7 @@ import {
   Layout,
   Fill,
   ComponentPlayground,
+  CodePane,
 } from "spectacle";
 
 import CodeSlide from 'spectacle-code-slide';
@@ -65,6 +66,10 @@ const theme = createTheme({
   primary: "Montserrat",
   secondary: "Helvetica"
 });
+
+const AppearListItem = (props) => (
+  <Appear><ListItem textSize={25}>{props.children}</ListItem></Appear>
+);
 
 export default class Presentation extends React.Component {
   render() {
@@ -254,6 +259,70 @@ export default class Presentation extends React.Component {
             },
           ]}
         />
+        <Slide transition={["zoom"]} bgColor="primary">
+          <Heading size={1} lineHeight={1} textColor="tertiary">
+            REDUX
+          </Heading>
+          <BlockQuote textColor="secondary">
+            <Quote textSize={20} textColor="secondary">
+              Redux is a predictable state container for JavaScript apps.
+            </Quote>
+            <Cite>redux.js.org</Cite>
+          </BlockQuote>
+        </Slide>
+        <Slide>
+          <List>
+            <ListItem>State</ListItem>
+            <ListItem>Actions</ListItem>
+            <ListItem>Reducers</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size={4}>Store: objet unique qui contient le State</Heading>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/redux-store.js")}
+            margin="20"
+          >
+          </CodePane>
+        </Slide>
+        <Slide>
+          <Heading size={4}>State: l'Etat de l'application</Heading>
+          <Appear>
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../assets/code/redux-state.js")}
+              margin="20"
+            >
+            </CodePane>
+          </Appear>
+          <AppearListItem>Stocké dans le store</AppearListItem>
+          <AppearListItem>Détient la vérité</AppearListItem>
+          <AppearListItem>Le seul à détenir la vérité</AppearListItem>
+          <AppearListItem>On ne peut pas le modifier directement!</AppearListItem>
+        </Slide>
+        <Slide>
+          <Heading size={4}>Action: description d'un évènement</Heading>
+          <Appear>
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../assets/code/redux-action.js")}
+              margin="20"
+            >
+            </CodePane>
+          </Appear>
+          <AppearListItem>Un objet javascript</AppearListItem>
+          <AppearListItem>Décrit un évènement survenu dans l'application (click, clavier, ...)</AppearListItem>
+          <AppearListItem>Est dispatché dans le store</AppearListItem>
+          <Appear>
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../assets/code/redux-dispatch.js")}
+              margin="20"
+            >
+            </CodePane>
+          </Appear>
+        </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Typography</Heading>
           <Heading size={1} textColor="secondary">Heading 1</Heading>
