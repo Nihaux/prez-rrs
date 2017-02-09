@@ -97,8 +97,11 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["zoom"]} bgColor="primary">
           <Heading size={1} lineHeight={1}>
-            Les fonctions fléchées (arrow function)
+            Les fonctions fléchées
           </Heading>
+          <Text margin="10px 0 0" size={6} bold>
+            (Arrow function)
+          </Text>
         </Slide>
         <CodeSlide
           fill
@@ -171,6 +174,37 @@ export default class Presentation extends React.Component {
             {
               loc: [43,44],
               note: '"my name is loulou" \\0/',
+            },
+          ]}
+        />
+        <Slide transition={["zoom"]} bgColor="primary">
+          <Heading size={1} lineHeight={1}>
+            Les classes
+          </Heading>
+        </Slide>
+        <CodeSlide
+          fill
+          lang="js"
+          code={require("raw-loader!../assets/code/class.js")}
+          ranges={[
+            {
+              loc: [0,0],
+              title: 'Sugar sugar',
+            },
+            {
+              loc: [0,5],
+              note: 'mot clef "constructor"',
+            },
+            {
+              loc: [6,7],
+              note: 'extends pour l\'héritage',
+            },
+            {
+              loc: [8,9],
+              note: 'super pour appeler la classe parente',
+            },
+            {
+              loc: [6, 16],
             },
           ]}
         />
