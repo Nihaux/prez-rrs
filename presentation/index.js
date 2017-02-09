@@ -15,6 +15,7 @@ import {
   Appear,
   Layout,
   Fill,
+  ComponentPlayground,
 } from "spectacle";
 
 import CodeSlide from 'spectacle-code-slide';
@@ -67,17 +68,7 @@ const theme = createTheme({
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
-        <CodeSlide
-          fill
-          lang="js"
-          code={require("raw-loader!../assets/code/es5function.js.example")}
-          ranges={[
-            { loc: [0,1] },
-            { loc: [1,2] },
-            { loc: [2,3] },
-          ]}
-        />
+      <Deck transition={[]} transitionDuration={500} theme={theme}>
         <Slide transition={["zoom"]}>
           <Heading size={1} fit caps lineHeight={1}>
             Développer une SPA
@@ -104,27 +95,85 @@ export default class Presentation extends React.Component {
             <Appear><ListItem>(Spidermonkey, V8, Tamarin, ...)</ListItem></Appear>
           </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={4}>Les arrow functions</Heading>
-          <Layout>
-            <Fill>
-              <Heading>ES5</Heading>
-            </Fill>
-            <Fill>
-              <Heading>ES6</Heading>
-              <CodeSlide
-                transition={[]}
-                lang="js"
-                code={require("raw-loader!../assets/code/es6function.js.example")}
-                ranges={[
-                  { loc: [0,1] },
-                  { loc: [1,2] },
-                  { loc: [2,3] },
-                ]}
-              />
-            </Fill>
-          </Layout>
+        <Slide transition={["zoom"]} bgColor="primary">
+          <Heading size={1} lineHeight={1}>
+            Les fonctions fléchées (arrow function)
+          </Heading>
         </Slide>
+        <CodeSlide
+          fill
+          lang="js"
+          code={require("raw-loader!../assets/code/arrow.js")}
+          ranges={[
+            {
+              loc: [0,0],
+              title: 'Du sucre syntaxique',
+            },
+            {
+              loc: [0,3],
+              note: 'une function ES5',
+            },
+            {
+              loc: [4,7],
+              note: 'une arrow function ES6',
+            },
+            {
+              loc: [8,11],
+            },
+            {
+              loc: [12,13],
+            },
+            {
+              loc: [14,19],
+            },
+            {
+              loc: [20,21],
+            },
+          ]}
+        />
+        <CodeSlide
+          fill
+          lang="js"
+          code={require("raw-loader!../assets/code/arrow-bind.js")}
+          ranges={[
+            {
+              loc: [0,0],
+              title: 'Le passage de this',
+            },
+            {
+              loc: [0,9],
+              note: 'un problème de scope',
+            },
+            {
+              loc: [9,10],
+              note: '"my name is"',
+            },
+            {
+              loc: [11,20],
+              note: 'contournement 1: bind a la mano',
+            },
+            {
+              loc: [20,21],
+              note: '"my name is fifi"',
+            },
+            {
+              loc: [22,31],
+              note: 'contournement 2: that = this',
+            },
+            {
+              loc: [32,33],
+              note: '"my name is fifi"',
+            },
+            {
+              loc: [34,42],
+              note: 'les arrow function à la rescousse !',
+            },
+            {
+              loc: [43,44],
+              note: '"my name is loulou" \\0/',
+            },
+          ]}
+        />
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Typography</Heading>
           <Heading size={1} textColor="secondary">Heading 1</Heading>

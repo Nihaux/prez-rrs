@@ -25,7 +25,7 @@ module.exports = {
       loader: "html-loader!markdown-loader?gfm=false"
     }, {
       test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
+      exclude: [/node_modules/, /assets/],
       loader: "babel-loader",
       query: {
         plugins: [
@@ -43,7 +43,6 @@ module.exports = {
           ]
         ]
       },
-      exclude: /node_modules/,
       include: __dirname
     }, {
       test: /\.css$/,
