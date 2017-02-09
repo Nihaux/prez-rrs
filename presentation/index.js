@@ -13,6 +13,7 @@ import {
   Slide,
   Text,
   Appear,
+  Fit,
   Layout,
   Fill,
   ComponentPlayground,
@@ -205,6 +206,51 @@ export default class Presentation extends React.Component {
             },
             {
               loc: [6, 16],
+            },
+          ]}
+        />
+        <Slide transition={["zoom"]} bgColor="primary">
+          <Heading size={5} lineHeight={1} textColor="tertiary">
+            Affectation par décomposition
+          </Heading>
+        </Slide>
+        <Slide transition={["zoom"]} bgColor="secondary">
+          <BlockQuote>
+            <Quote textSize={20}>
+              L'affectation par décomposition (destructuring en anglais)<br/>
+              est une expression JavaScript<br/>
+              qui permet d'extraire des données d'un tableau ou d'un objet grâce à une syntaxe<br/>
+              dont la forme ressemble à la structure du tableau ou de l'objet.<br/>
+            </Quote>
+            <Cite>MDN</Cite>
+          </BlockQuote>
+        </Slide>
+        <CodeSlide
+          fill
+          lang="js"
+          code={require("raw-loader!../assets/code/destruct.js")}
+          ranges={[
+            {
+              loc: [0,10],
+            },
+            {
+              loc: [11, 12],
+            },
+            {
+              loc: [13,14],
+              note: '=> 1',
+            },
+            {
+              loc: [15,16],
+              note: ' => Vous ne devinerez jamais ce que[...]',
+            },
+            {
+              loc: [17,18],
+              note: '=> 4',
+            },
+            {
+              loc: [19, 20],
+              note: '=> undefined',
             },
           ]}
         />
