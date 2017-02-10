@@ -370,6 +370,80 @@ export default class Presentation extends React.Component {
             },
           ]}
         />
+        <Slide transition={["zoom"]} bgColor="primary">
+          <Heading size={1} lineHeight={1} textColor="tertiary">
+            React
+          </Heading>
+          <BlockQuote textColor="secondary">
+            <Quote textSize={20} textColor="secondary">
+              A JAVASCRIPT LIBRARY FOR BUILDING USER INTERFACES
+            </Quote>
+            <Cite>https://facebook.github.io/react/</Cite>
+          </BlockQuote>
+        </Slide>
+        <Slide>
+          <Heading size={1} lineHeight={1} textColor="tertiary">
+            JSX
+          </Heading>
+          <Text>Sucre syntaxique qui permet creer de nouvelle balises -- lego style</Text>
+        </Slide>
+        <Slide>
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/jsx.js")}
+            margin="20"
+          >
+          </CodePane>
+          <Appear>
+            <CodePane
+              lang="javascript"
+              source={require("raw-loader!../assets/code/no-jsx.js")}
+              margin="20"
+            >
+            </CodePane>
+          </Appear>
+        </Slide>
+        <Slide>
+          <Heading size={4} lineHeight={1} textColor="tertiary">
+            Cycle de vie d'un composant React
+          </Heading>
+          <List>
+            <AppearListItem>
+              Mounting (componentWillMount(), componentDidMount())
+            </AppearListItem>
+            <AppearListItem>
+              Updating (componentWillReceiveProps())
+            </AppearListItem>
+            <AppearListItem>
+              UnMounting (componentWillUnmount())
+            </AppearListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size={1} lineHeight={1} textColor="tertiary">
+            React-Redux
+          </Heading>
+          <Text>La glue entre les deux</Text>
+        </Slide>
+        <CodeSlide
+          fill
+          lang="js"
+          code={require("raw-loader!../assets/code/react-redux.js")}
+          ranges={[
+            {
+              loc: [0,5],
+            },
+            {
+              loc: [6, 9],
+            },
+            {
+              loc: [10, 13],
+            },
+            {
+              loc: [14, 18],
+            },
+          ]}
+        />
       </Deck>
     );
   }
