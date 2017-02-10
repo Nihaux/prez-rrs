@@ -317,7 +317,7 @@ export default class Presentation extends React.Component {
           </Appear>
           <AppearListItem>Un objet javascript</AppearListItem>
           <AppearListItem>Décrit un évènement survenu dans l'application (click, clavier, ...)</AppearListItem>
-          <AppearListItem>Est dispatché dans le store</AppearListItem>
+          <AppearListItem>Est dispatchée dans le store</AppearListItem>
           <Appear>
             <CodePane
               lang="javascript"
@@ -328,7 +328,7 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
         <Slide>
-          <Heading size={4}>Reducer: des functions pures</Heading>
+          <Heading size={4}>Reducer: des fonctions pures</Heading>
           <List>
             <AppearListItem>Entrée State + Action</AppearListItem>
             <AppearListItem>Sortie Nouveau State</AppearListItem>
@@ -385,7 +385,7 @@ export default class Presentation extends React.Component {
           <Heading size={1} lineHeight={1} textColor="tertiary">
             JSX
           </Heading>
-          <Text>Sucre syntaxique qui permet creer de nouvelle balises -- lego style</Text>
+          <Text>Sucre syntaxique qui permet de créer de nouvelle balises -- lego style</Text>
         </Slide>
         <Slide>
           <CodePane
@@ -489,7 +489,7 @@ export default class Presentation extends React.Component {
           ]}
         />
         <Slide>
-          <Text>Redux Saga nous fournis certain nombre de mot clef</Text>
+          <Text>Redux Saga nous fournit un certain nombre de mots clefs</Text>
           <List>
             <AppearListItem>TAKE: attendre une action redux</AppearListItem>
             <AppearListItem>PUT: dispatch une action redux</AppearListItem>
