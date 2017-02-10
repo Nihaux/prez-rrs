@@ -444,6 +444,74 @@ export default class Presentation extends React.Component {
             },
           ]}
         />
+        <Slide>
+          <Image src={require("../assets/ARCH-Redux2-real.gif")} width="900"/>
+        </Slide>
+        <Slide>
+          <Heading size={1} lineHeight={1} textColor="tertiary">
+            Redux-Saga
+          </Heading>
+          <Text>Racontons des histoires</Text>
+        </Slide>
+        <Slide>
+          <Text>Redux-Saga est un middleware, intercepte les actions avant leur arrivée dans les reducers</Text>
+        </Slide>
+        <Slide>
+          <Image src={require("../assets/ARCH-Redux2-real.gif")} width="900"/>
+        </Slide>
+        <Slide>
+          <Text>Utilise les generator javascript</Text>
+          <List>
+            <AppearListItem>utilise le mot clef yield</AppearListItem>
+            <AppearListItem>permet de return de la donnée</AppearListItem>
+            <AppearListItem>ou d'en recevoir</AppearListItem>
+          </List>
+        </Slide>
+        <CodeSlide
+          fill
+          lang="js"
+          code={require("raw-loader!../assets/code/generator.js")}
+          ranges={[
+            {
+              loc: [0,5],
+            },
+            {
+              loc: [6, 7],
+            },
+            {
+              loc: [8, 9],
+              note: 'in prog, somevalue',
+            },
+            {
+              loc: [10, 11],
+              note: 'in generator: salut',
+            },
+          ]}
+        />
+        <Slide>
+          <Text>Redux Saga nous fournis certain nombre de mot clef</Text>
+          <List>
+            <AppearListItem>TAKE: attendre une action redux</AppearListItem>
+            <AppearListItem>PUT: dispatch une action redux</AppearListItem>
+            <AppearListItem>CALL, SELECT, RACE, ... </AppearListItem>
+          </List>
+        </Slide>
+        <Slide maxWidth="100%">
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/saga.js")}
+            margin="20"
+          >
+          </CodePane>
+        </Slide>
+        <Slide maxWidth="100%">
+          <CodePane
+            lang="javascript"
+            source={require("raw-loader!../assets/code/saga-test.js")}
+            margin="20"
+          >
+          </CodePane>
+        </Slide>
       </Deck>
     );
   }
