@@ -13,6 +13,7 @@ import {
   Slide,
   Text,
   Appear,
+  Image,
   Fit,
   Layout,
   Fill,
@@ -253,10 +254,6 @@ export default class Presentation extends React.Component {
               loc: [17,18],
               note: '=> 4',
             },
-            {
-              loc: [19, 20],
-              note: '=> undefined',
-            },
           ]}
         />
         <Slide transition={["zoom"]} bgColor="primary">
@@ -271,20 +268,29 @@ export default class Presentation extends React.Component {
           </BlockQuote>
         </Slide>
         <Slide>
+          <Heading size={4} lineHeight={1} textColor="tertiary">
+            Implementation du pattern flux
+          </Heading>
+          <Image src={require("../assets/flux.png")} width="900" margin="20" />
+        </Slide>
+        <Slide>
+          <Image src={require("../assets/ARCH-Redux2-real.gif")} width="900"/>
+        </Slide>
+        <Slide>
           <List>
+            <ListItem>Store</ListItem>
             <ListItem>State</ListItem>
             <ListItem>Actions</ListItem>
             <ListItem>Reducers</ListItem>
           </List>
         </Slide>
         <Slide>
-          <Heading size={4}>Store: objet unique qui contient le State</Heading>
-          <CodePane
-            lang="javascript"
-            source={require("raw-loader!../assets/code/redux-store.js")}
-            margin="20"
-          >
-          </CodePane>
+          <Heading size={4} textColor="tertiary">Store: objet unique</Heading>
+          <List>
+            <ListItem>Contient le State de l'application</ListItem>
+            <ListItem>Contient les reducers</ListItem>
+            <ListItem>Dispatch les actions aux reducers</ListItem>
+          </List>
         </Slide>
         <Slide>
           <Heading size={4}>State: l'Etat de l'application</Heading>
@@ -296,9 +302,7 @@ export default class Presentation extends React.Component {
             >
             </CodePane>
           </Appear>
-          <AppearListItem>Stocké dans le store</AppearListItem>
-          <AppearListItem>Détient la vérité</AppearListItem>
-          <AppearListItem>Le seul à détenir la vérité</AppearListItem>
+          <AppearListItem>Unique Référence concernant l'État de l'application</AppearListItem>
           <AppearListItem>On ne peut pas le modifier directement!</AppearListItem>
         </Slide>
         <Slide>
@@ -322,6 +326,24 @@ export default class Presentation extends React.Component {
             >
             </CodePane>
           </Appear>
+        </Slide>
+        <Slide>
+          <Heading size={4}>Reducer: des functions pures</Heading>
+          <List>
+            <AppearListItem>Entrée State + Action</AppearListItem>
+            <AppearListItem>Sortie Nouveau State</AppearListItem>
+            <Appear>
+              <CodePane
+                lang="javascript"
+                source={require("raw-loader!../assets/code/redux-reducers.js")}
+                margin="20"
+              >
+              </CodePane>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide>
+          <Image src={require("../assets/ARCH-Redux2-real.gif")} width="900"/>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Typography</Heading>
