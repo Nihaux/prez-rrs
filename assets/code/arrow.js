@@ -2,7 +2,7 @@ function hello(name) {
   console.log('hello' + name);
 }
 
-const hello = (name) => {
+const helloBis = (name) => {
   console.log('hello' + name);
 }
 
@@ -10,7 +10,7 @@ function addOne(number) {
   return number + 1;
 }
 
-const addOne = number => number + 1;
+const addOneBis = number => number + 1;
 
 function returnJson(name) {
   return {
@@ -18,7 +18,7 @@ function returnJson(name) {
   };
 }
 
-const returnJson = name => ({ name });
+const returnJsonBis = name => ({ name });
 
 
 
